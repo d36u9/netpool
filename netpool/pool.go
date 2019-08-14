@@ -97,7 +97,7 @@ func (p *ConnPool) Recycle(conn net.Conn) error {
 		p.cnt--
 		return errors.New("Closed Conn cannot be recycled")
 	}
-	fmt.Println("recycle connection")
+
 	select {
 	case p.conns <- conn:
 		return nil
